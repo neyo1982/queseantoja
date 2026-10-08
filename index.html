@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f7f5f0" />
+    <meta name="description" content="Mesa abierta: descubre negocios de comida y pide directo por WhatsApp." />
+    <title>mesa abierta — descubre tu próximo antojo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="announcement"><span class="pulse-dot"></span> Catálogos locales, pedidos directos y antojos serios.</div>
+
+    <header class="site-header">
+      <a class="brand" href="#inicio" aria-label="Mesa abierta, inicio">
+        <span class="brand-mark">✦</span>
+        <span>mesa <i>abierta</i></span>
+      </a>
+      <nav class="desktop-nav" aria-label="Navegación principal">
+        <a href="#explorar">Explorar</a>
+        <a href="#como-funciona">Cómo funciona</a>
+        <a href="#para-negocios">Para negocios</a>
+      </nav>
+      <div class="header-actions">
+        <button class="text-button" id="locationButton" type="button"><span class="pin">⌖</span> Cochabamba <span class="chevron">⌄</span></button>
+        <button class="cart-button" id="openCartButton" type="button" aria-label="Abrir carrito">
+          <span class="cart-icon">♧</span><span class="cart-label">Mi pedido</span><span class="cart-count" id="headerCartCount">0</span>
+        </button>
+      </div>
+    </header>
+
+    <main id="inicio">
+      <section class="hero container">
+        <div class="hero-copy">
+          <p class="eyebrow"><span></span> Comer bien empieza por encontrarlo</p>
+          <h1>Tu próximo antojo<br /><em>está más cerca.</em></h1>
+          <p class="hero-text">Descubre menús de negocios locales, arma tu pedido y escríbeles directo. Sin vueltas, sin intermediarios.</p>
+          <div class="search-wrap">
+            <span class="search-icon">⌕</span>
+            <input id="globalSearch" type="search" placeholder="Busca pizza, crepas, hamburguesas…" autocomplete="off" />
+            <kbd>⌘ K</kbd>
+          </div>
+          <div class="quick-searches" aria-label="Búsquedas rápidas">
+            <span>Prueba con:</span>
+            <button type="button" data-search="pizza">pizza</button>
+            <button type="button" data-search="hamburguesa">hamburguesa</button>
+            <button type="button" data-search="postre">postre</button>
+          </div>
+        </div>
+        <div class="hero-art" aria-label="Collage de alimentos">
+          <div class="art-orbit orbit-one"></div><div class="art-orbit orbit-two"></div>
+          <div class="food-card food-main"><img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=780&q=85" alt="Pizza recién horneada" /><span class="floating-tag tag-top">hecho con cariño <b>♡</b></span><span class="floating-tag tag-bottom">recomendado hoy <b>✦</b></span></div>
+          <div class="food-card food-small small-one"><img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=360&q=85" alt="Hamburguesa" /></div>
+          <div class="food-card food-small small-two"><img src="https://images.unsplash.com/photo-1551024506-0bccd828d307?auto=format&fit=crop&w=360&q=85" alt="Dona glaseada" /></div>
+          <div class="scribble">rico<br /><span>rico</span></div>
+        </div>
+      </section>
+
+      <section class="trust-strip container">
+        <div><strong>12</strong><span>negocios para<br />descubrir</span></div>
+        <div><strong>100%</strong><span>pedido directo<br />al negocio</span></div>
+        <div><strong>0</strong><span>comisiones para<br />tu primera prueba</span></div>
+        <div class="trust-note"><span class="spark">✦</span> Apoya lo<br /><b>local.</b></div>
+      </section>
+
+      <section class="explore container" id="explorar">
+        <div class="section-heading">
+          <div><p class="eyebrow"><span></span> Explora por antojo</p><h2>¿Qué se te antoja?</h2></div>
+          <p class="section-note">Un solo lugar para muchos sabores.<br />Encuentra algo nuevo hoy.</p>
+        </div>
+        <div class="category-row" id="categoryRow"></div>
+      </section>
+
+      <section class="business-section container">
+        <div class="section-heading compact">
+          <div><p class="eyebrow"><span></span> Cerca de ti</p><h2 id="businessHeading">Negocios que te pueden gustar</h2></div>
+          <button class="outline-button" id="clearFilters" type="button">Ver todos <span>→</span></button>
+        </div>
+        <div class="business-grid" id="businessGrid"></div>
+        <div class="empty-state hidden" id="emptyState"><div class="empty-icon">⌕</div><h3>No encontramos ese antojo</h3><p>Prueba con otra palabra o explora todas las categorías.</p><button class="primary-button" id="emptyReset" type="button">Ver todos los negocios</button></div>
+      </section>
+
+      <section class="how-section" id="como-funciona">
+        <div class="container how-inner">
+          <div><p class="eyebrow light"><span></span> Así de simple</p><h2>Encontrar.<br /><em>Elegir. Disfrutar.</em></h2><p class="how-copy">Cada negocio tiene su propio espacio, pero la experiencia se siente familiar. Porque pedir comida debería ser fácil.</p></div>
+          <div class="steps">
+            <div class="step"><span>01</span><div><h3>Descubre</h3><p>Busca por tipo de comida, nombre o antojo.</p></div></div>
+            <div class="step"><span>02</span><div><h3>Arma tu pedido</h3><p>Elige productos, extras y deja una nota.</p></div></div>
+            <div class="step"><span>03</span><div><h3>Habla directo</h3><p>Envía el pedido por WhatsApp al negocio.</p></div></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="business-cta container" id="para-negocios">
+        <div class="cta-sticker">Tu menú<br /><b>también</b><br />merece casa.</div>
+        <div><p class="eyebrow"><span></span> Para negocios de comida</p><h2>Haz que encontrarte<br />sea más fácil.</h2><p>Una página bonita para mostrar lo que haces, recibir pedidos y mantener tu menú al día.</p></div>
+        <button class="dark-button" type="button" id="businessCta">Quiero mi catálogo <span>↗</span></button>
+      </section>
+    </main>
+
+    <section class="business-view hidden" id="businessView" aria-hidden="true">
+      <div class="business-view-top container"><button class="back-button" id="backButton" type="button">← Volver a explorar</button><button class="cart-button" id="viewCartButton" type="button"><span class="cart-icon">♧</span> Mi pedido <span class="cart-count" id="viewCartCount">0</span></button></div>
+      <div class="storefront container" id="storefront"></div>
+    </section>
+
+    <div class="overlay hidden" id="overlay"></div>
+    <aside class="cart-drawer" id="cartDrawer" aria-label="Mi pedido" aria-hidden="true">
+      <div class="drawer-head"><div><p class="eyebrow"><span></span> Tu selección</p><h2>Mi pedido</h2></div><button class="close-button" id="closeCartButton" type="button" aria-label="Cerrar carrito">×</button></div>
+      <div id="cartContent" class="cart-content"></div>
+    </aside>
+    <div class="toast" id="toast" role="status"></div>
+    <footer class="site-footer"><div class="container footer-inner"><a class="brand" href="#inicio"><span class="brand-mark">✦</span><span>mesa <i>abierta</i></span></a><p>Un catálogo para cada antojo.</p><span>demo v0.1 · 2026</span></div></footer>
+    <script src="app.js"></script>
+  </body>
+</html>
